@@ -215,9 +215,9 @@ header .right .profile img {
     margin-left: 0;
     /* padding: 20px 30px 20px 20px !important; */
   }
-  header .left {
-    /* flex-basis: 50%; */
-  }
+  /* header .left {
+    flex-basis: 50%;
+  } */
   header .left .toggler {
     display: block;
     margin-left: 20px;
@@ -226,6 +226,9 @@ header .right .profile img {
 @media screen and (max-width: 600px) {
   header .right {
     gap: 30px;
+  }
+  header .right .search i {
+    font-size: 1.3rem;
   }
   header .right .notification i {
     font-size: 1.5rem;
