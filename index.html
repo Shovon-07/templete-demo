@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="var.css" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="sidenav.css" />
+    <link rel="stylesheet" href="header.css" />
+    <!-- Font awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <!-- Header -->
+    <header>
+      <div class="left">
+        <div class="toggler" id="openSideNav">
+          <i class="fa-solid fa-bars"></i>
+        </div>
+        <div class="search-box">
+          <input type="text" placeholder="Searh hear" />
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </div>
+      </div>
+      <ul class="right">
+        <li class="notification access-icons">
+          <i class="fa-solid fa-bell"></i><span>10</span>
+          <ul class="header-dropdown">
+            <div class="corner"></div>
+            <li>
+              <a href="" class="nitify-link">
+                <h3 class="nitify-title">Notification 1 ...</h3>
+                <p class="notify-desc">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Possimus dolores quo non placeat eius ...
+                </p>
+              </a>
+            </li>
+            <li>
+              <a href="" class="nitify-link">
+                <h3 class="nitify-title">Notification 2 ...</h3>
+                <p class="notify-desc">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Possimus dolores quo non placeat eius ...
+                </p>
+              </a>
+            </li>
+            <li>
+              <a href="" class="nitify-link">
+                <h3 class="nitify-title">Notification 3 ...</h3>
+                <p class="notify-desc">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Possimus dolores quo non placeat eius ...
+                </p>
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li class="profile">
+          <div>
+            <img src="./img/web-page.jpg" alt="" />
+            <p>Al jubair sho ...</p>
+          </div>
+          <i class="fa-solid fa-angle-down right-icon"></i>
+          <ul class="header-dropdown">
+            <div class="corner"></div>
+            <li>
+              <a href=""><i class="fa-solid fa-user"></i>Profile</a>
+            </li>
+            <li>
+              <a href=""><i class="fa-solid fa-gear"></i> Settings</a>
+            </li>
+            <li>
+              <a href=""
+                ><i class="fa-solid fa-right-from-bracket"></i>Logout</a
+              >
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </header>
+
+    <!-- Side nav -->
+    <div class="side-nav">
+      <div class="brand">
+        <h2>Admin</h2>
+        <div class="toggler" id="closeSideNav">
+          <i class="fa-solid fa-close"></i>
+        </div>
+      </div>
+      <ul class="side-menu">
+        <li>
+          <a href=""
+            ><div><i class="fa-solid fa-house"></i>Dashboard</div></a
+          >
+        </li>
+        <p class="indicate-section">Accessibility</p>
+        <li>
+          <a href=""
+            ><div><i class="fa-solid fa-user"></i>Profile</div></a
+          >
+        </li>
+        <li>
+          <a href=""
+            ><div><i class="fa-solid fa-gear"></i>Settings</div></a
+          >
+        </li>
+        <p class="indicate-section">Products</p>
+        <li class="side-nav-dropdown-parent">
+          <a href=""
+            ><div><i class="fa-solid fa-list"></i>Categories</div>
+            <i class="fa-solid fa-angle-down right-icon"></i
+          ></a>
+          <ul class="side-nav-dropdown">
+            <li>
+              <a href=""
+                ><div><i class="fa-solid fa-file"></i>Categories Item 1</div></a
+              >
+            </li>
+            <li>
+              <a href=""
+                ><div><i class="fa-solid fa-file"></i>Categories Item 2</div></a
+              >
+            </li>
+          </ul>
+        </li>
+        <li class="side-nav-dropdown-parent">
+          <a href=""
+            ><div><i class="fa-solid fa-tag"></i>Brands</div>
+            <i class="fa-solid fa-angle-down right-icon"></i>
+          </a>
+          <ul class="side-nav-dropdown">
+            <li>
+              <a href=""
+                ><div><i class="fa-solid fa-file"></i>Brands item 1</div></a
+              >
+            </li>
+            <li>
+              <a href=""
+                ><div><i class="fa-solid fa-file"></i>Brands item 2</div></a
+              >
+            </li>
+          </ul>
+        </li>
+        <li class="side-nav-dropdown-parent">
+          <a href=""
+            ><div><i class="fa-solid fa-box"></i>Products</div>
+            <i class="fa-solid fa-angle-down right-icon"></i
+          ></a>
+          <ul class="side-nav-dropdown">
+            <li>
+              <a href=""
+                ><div><i class="fa-solid fa-file"></i>Products Item 1</div></a
+              >
+            </li>
+            <li>
+              <a href=""
+                ><div><i class="fa-solid fa-file"></i>Products Item 2</div></a
+              >
+            </li>
+          </ul>
+        </li>
+        <p class="indicate-section">Featured</p>
+        <li>
+          <a href=""
+            ><div><i class="fa-solid fa-file"></i>Items</div></a
+          >
+        </li>
+        <li>
+          <a href=""
+            ><div><i class="fa-solid fa-file"></i>Items</div></a
+          >
+        </li>
+      </ul>
+      <div class="bottom-box">
+        <button>Logout<i class="fa-solid fa-right-from-bracket"></i></button>
+      </div>
+    </div>
+
+    <!-- Body Overlay -->
+    <div class="body-overlay"></div>
+
+    <!-- Contents -->
+    <section></section>
+
+    <script src="script.js"></script>
+  </body>
+</html>
+
+<!-- file:///home/shovon/Documents/Web-development/Js-Project/Templetes/Admin-Dashboard/index.html -->

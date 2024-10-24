@@ -1,0 +1,204 @@
+header {
+  background: var(--light-1);
+  position: sticky;
+  top: 0;
+  margin-left: 230px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 30px 20px 0;
+  box-shadow: var(--shadow);
+  transition: var(--trans);
+  z-index: 98;
+}
+header li {
+  list-style: none;
+}
+header a {
+  text-decoration: none;
+}
+header .left {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-basis: 40%;
+}
+header .left .toggler {
+  display: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  z-index: 99;
+}
+header .left .search-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  box-shadow: inset 2px 2px 5px var(--light-3),
+    inset -2px -2px 5px var(--light-3);
+  border-radius: 50px;
+  margin-left: 20px;
+}
+header .left .search-box input {
+  border: none;
+  border-radius: 50px;
+  outline: none;
+  width: 100%;
+  font-size: 1rem;
+  padding: 8px 20px;
+  background: transparent;
+}
+header .left .search-box i {
+  margin-right: 10px;
+  color: var(--dark-3);
+}
+
+header .right {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+}
+header .right .access-icons {
+  position: relative;
+}
+header .right .access-icons i {
+  font-size: 1.9rem;
+  cursor: pointer;
+}
+header .right .access-icons span {
+  background: var(--red);
+  color: #fff;
+  font-size: 0.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  position: absolute;
+  top: -8px;
+  right: -16px;
+  cursor: pointer;
+}
+header .right .profile {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  cursor: pointer;
+  position: relative;
+}
+header .right .profile:hover .header-dropdown,
+header .right .profile.active .header-dropdown {
+  display: block;
+}
+header .right .profile div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+header .right .profile p {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+header .right .profile img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: var(--border);
+}
+header .right .notification:hover .header-dropdown {
+  display: block;
+}
+
+.header-dropdown {
+  width: 100%;
+  position: absolute;
+  top: 38px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--dropdown-box-clr);
+  transition: var(--trans);
+  display: none;
+}
+.header-dropdown li a {
+  color: var(--dark-3);
+  padding: 7px 5px 7px 10px;
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+  width: 100%;
+  transition: var(--trans);
+}
+.header-dropdown li a:hover {
+  background: var(--light-blue);
+}
+.header-dropdown .corner {
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid var(--dropdown-box-clr);
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translatex(-50%);
+}
+
+header .right .notification .header-dropdown {
+  width: 300px;
+}
+header .right .notification .header-dropdown li a {
+  font-size: 1rem;
+}
+header .right .notification .nitify-link {
+  display: block;
+  border-bottom: 0.1rem solid var(--dark-3);
+}
+header .right .notification .header-dropdown li:last-of-type .nitify-link {
+  border-bottom: none;
+}
+
+@media screen and (max-width: 800px) {
+  header {
+    margin-left: 0;
+    padding: 20px 30px 20px 20px !important;
+  }
+  header .left {
+    flex-basis: 50%;
+  }
+  header .left .toggler {
+    display: block;
+  }
+}
+@media screen and (max-width: 630px) {
+  header .right .access-icons i {
+    font-size: 1.5rem;
+  }
+  header .right .access-icons span {
+    font-size: 0.7rem;
+    width: 20px;
+    height: 20px;
+  }
+  header .right .profile p {
+    font-size: 0.8rem;
+    font-weight: 600;
+  }
+  header .right .profile img {
+    width: 25px;
+    height: 25px;
+  }
+}
+@media screen and (max-width: 470px) {
+  header {
+    padding: 20px 10px 20px 10px !important;
+  }
+  header .left .search-box {
+    margin-left: 10px;
+  }
+  header .right {
+    gap: 20px;
+  }
+}
