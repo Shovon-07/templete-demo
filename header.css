@@ -29,7 +29,7 @@ header .left .toggler {
   cursor: pointer;
   z-index: 99;
 }
-header .left .search-box {
+/* header .left .search-box {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -51,22 +51,64 @@ header .left .search-box input {
 header .left .search-box i {
   margin-right: 10px;
   color: var(--dark-3);
-}
+} */
 
 header .right {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 30px;
+  gap: 40px;
 }
-header .right .access-icons {
+/* Search start */
+header .right .search {
   position: relative;
 }
-header .right .access-icons i {
+header .right .search i {
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+header .right .search:hover .header-dropdown {
+  display: block;
+}
+header .right .search-box .inp-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  box-shadow: inset 2px 2px 5px var(--light-3),
+    inset -2px -2px 5px var(--light-3);
+  border-radius: 50px;
+  background: var(--light-1);
+}
+header .right .search-box .inp-box input {
+  border: none;
+  border-radius: 50px;
+  outline: none;
+  width: 100%;
+  font-size: 1rem;
+  padding: 8px 20px;
+  background: transparent;
+}
+header .right .search-box .inp-box i {
+  margin-right: 20px;
+  color: var(--dark-3);
+  font-size: 1rem;
+  cursor: none;
+}
+header .right .search .header-dropdown {
+  width: 300px;
+  padding: 10px !important;
+}
+/* Search end */
+/* Notification start */
+header .right .notification {
+  position: relative;
+}
+header .right .notification i {
   font-size: 1.9rem;
   cursor: pointer;
 }
-header .right .access-icons span {
+header .right .notification span {
   background: var(--red);
   color: #fff;
   font-size: 0.8rem;
@@ -81,6 +123,26 @@ header .right .access-icons span {
   right: -16px;
   cursor: pointer;
 }
+header .right .notification:hover .header-dropdown {
+  display: block;
+}
+
+header .right .notification .header-dropdown {
+  width: 300px;
+}
+header .right .notification .header-dropdown li a {
+  font-size: 1rem;
+}
+header .right .notification .nitify-link {
+  display: block;
+  border-bottom: 0.1rem solid var(--dark-3);
+}
+header .right .notification .header-dropdown li:last-of-type .nitify-link {
+  border-bottom: none;
+}
+/* Notification end */
+
+/* Profile start */
 header .right .profile {
   display: flex;
   align-items: center;
@@ -109,9 +171,7 @@ header .right .profile img {
   border-radius: 50%;
   border: var(--border);
 }
-header .right .notification:hover .header-dropdown {
-  display: block;
-}
+/* Profile end */
 
 .header-dropdown {
   width: 100%;
@@ -147,20 +207,6 @@ header .right .notification:hover .header-dropdown {
   transform: translatex(-50%);
 }
 
-header .right .notification .header-dropdown {
-  width: 300px;
-}
-header .right .notification .header-dropdown li a {
-  font-size: 1rem;
-}
-header .right .notification .nitify-link {
-  display: block;
-  border-bottom: 0.1rem solid var(--dark-3);
-}
-header .right .notification .header-dropdown li:last-of-type .nitify-link {
-  border-bottom: none;
-}
-
 @media screen and (max-width: 800px) {
   header {
     margin-left: 0;
@@ -174,10 +220,10 @@ header .right .notification .header-dropdown li:last-of-type .nitify-link {
   }
 }
 @media screen and (max-width: 630px) {
-  header .right .access-icons i {
+  header .right .notification i {
     font-size: 1.5rem;
   }
-  header .right .access-icons span {
+  header .right .notification span {
     font-size: 0.7rem;
     width: 20px;
     height: 20px;
