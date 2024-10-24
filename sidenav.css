@@ -34,7 +34,7 @@
   opacity: 0;
   position: absolute;
   right: 10px;
-  top: 25px;
+  top: 20px;
   transition: 2s all;
 }
 .side-nav .brand .toggler.show {

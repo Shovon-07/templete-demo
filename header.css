@@ -21,7 +21,7 @@ header .left {
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-basis: 40%;
+  /* flex-basis: 40%; */
 }
 header .left .toggler {
   display: none;
@@ -213,16 +213,20 @@ header .right .profile img {
 @media screen and (max-width: 800px) {
   header {
     margin-left: 0;
-    padding: 20px 30px 20px 20px !important;
+    /* padding: 20px 30px 20px 20px !important; */
   }
   header .left {
-    flex-basis: 50%;
+    /* flex-basis: 50%; */
   }
   header .left .toggler {
     display: block;
+    margin-left: 20px;
   }
 }
-@media screen and (max-width: 630px) {
+@media screen and (max-width: 600px) {
+  header .right {
+    gap: 30px;
+  }
   header .right .notification i {
     font-size: 1.5rem;
   }
@@ -231,6 +235,39 @@ header .right .profile img {
     width: 20px;
     height: 20px;
   }
+  /* header .right .profile p {
+    font-size: 0.8rem;
+    font-weight: 600;
+  }
+  header .right .profile img {
+    width: 25px;
+    height: 25px;
+  } */
+}
+@media screen and (max-width: 500px) {
+  /* header {
+    padding: 20px 10px 20px 10px !important;
+  } */
+  /* header .left .search-box {
+    margin-left: 10px;
+  } */
+  /* header .right {
+    gap: 20px;
+  } */
+}
+@media screen and (max-width: 470px) {
+  /* header .left {
+    flex-basis: 40%;
+  } */
+  header .left .toggler {
+    font-size: 1.2rem;
+  }
+  /* header .left .search-box input {
+    font-size: 0.8rem;
+  } */
+  header .right {
+    gap: 20px;
+  }
   header .right .profile p {
     font-size: 0.8rem;
     font-weight: 600;
@@ -238,27 +275,5 @@ header .right .profile img {
   header .right .profile img {
     width: 25px;
     height: 25px;
-  }
-}
-@media screen and (max-width: 500px) {
-  header {
-    padding: 20px 10px 20px 10px !important;
-  }
-  header .left .search-box {
-    margin-left: 10px;
-  }
-  header .right {
-    gap: 20px;
-  }
-}
-@media screen and (max-width: 470px) {
-  header .left {
-    flex-basis: 40%;
-  }
-  header .left .toggler {
-    font-size: 1.2rem;
-  }
-  header .left .search-box input {
-    font-size: 0.8rem;
   }
 }
