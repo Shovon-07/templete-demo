@@ -202,3 +202,14 @@ header .right .notification .header-dropdown li:last-of-type .nitify-link {
     gap: 20px;
   }
 }
+@media screen and (max-width: 440px) {
+  header .left {
+    flex-basis: 40%;
+  }
+  header .left .toggler {
+    font-size: 1.2rem;
+  }
+  header .left .search-box input {
+    font-size: 0.8rem;
+  }
+}
