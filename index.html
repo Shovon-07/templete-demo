@@ -4,12 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="shortcut icon" href="./g-map.png" type="image/x-icon" />
-    <title>Find Location</title>
-    <script
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCQcVHpROpJyQGNH8P3uyIf9ufR5uWzryg&callback=initMap"
-      async
-      defer
-    ></script>
+    <title>Get Location</title>
 
     <style>
       * {
@@ -17,49 +12,97 @@
         padding: 0;
         box-sizing: border-box;
       }
+      body {
+        /* background: #202020; */
+        background: rgb(5, 1, 64);
+        background: linear-gradient(
+          90deg,
+          rgba(5, 1, 64, 1) 0%,
+          rgba(3, 102, 130, 1) 48%,
+          rgba(5, 1, 64, 1) 100%
+        );
+      }
       #map {
         height: 100vh;
         width: 100%;
       }
+      .location-box {
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .location-box .location-link {
+        color: #fff;
+        font-size: 3rem;
+        text-decoration: none;
+        box-shadow: 1px 1px 10px #000;
+        padding: 10px 30px;
+        border-radius: 15px;
+      }
     </style>
   </head>
   <body>
-    <div id="map"></div>
+    <div class="location-box">
+      <a
+        class="location-link"
+        href="https://www.google.com/maps/place"
+        target="_blank"
+        >See the location</a
+      >
+    </div>
 
     <script>
-      let map;
-      let marker;
-
-      // Initialize the map
-      function initMap() {
-        const initialLocation = { lat: 24.3746, lng: 88.6004 }; // Default location (New York)
-        map = new google.maps.Map(document.getElementById("map"), {
-          center: initialLocation,
-          zoom: 12,
-        });
-        marker = new google.maps.Marker({
-          position: initialLocation,
-          map: map,
-        });
-      }
-
-      // Function to update location based on latitude and longitude
-      function updateLocation(lat, lng) {
-        const newLocation = { lat: lat, lng: lng };
-        map.setCenter(newLocation);
-        marker.setPosition(newLocation);
-      }
-
-      // Example: Changing location dynamically
-      //setTimeout(() => {
-        //updateLocation(34.052235, -118.243683); // Los Angeles coordinates
-      //}, 3000); // Change after 3 seconds
+      window.addEventListener("load", () => {
+        let coOrdinates = {
+          latitude: "24.38048038576122",
+          longitude: "88.56039293772828",
+        };
+        let locationLink = document.querySelector(".location-link");
+        locationLink.href = `https://www.google.com/maps/place/${coOrdinates.latitude}+${coOrdinates.longitude}`;
+      });
     </script>
   </body>
 </html>
 
 <!-- 
     >>> Rajshahi : 24.3746° N, 88.6004° E
+    >>> Our musque(Shovon) : 24.38048038576122, 88.56039293772828
 -->
 
-<!-- AIzaSyCQcVHpROpJyQGNH8P3uyIf9ufR5uWzryg -->
+<!--
+<script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCQcVHpROpJyQGNH8P3uyIf9ufR5uWzryg&callback=initMap"
+      async
+      defer
+></script>
+
+<div id="map"></div>
+<script>
+  let map;
+  let marker;
+
+  // Initialize the map
+  let latitudeValue = 24.3746;
+  let longitudeValue = 88.6004;
+  function initMap() {
+    const initialLocation = { lat: latitudeValue, lng: longitudeValue };
+    map = new google.maps.Map(document.getElementById("map"), {
+      center: initialLocation,
+      zoom: 12,
+    });
+    marker = new google.maps.Marker({
+      position: initialLocation,
+      map: map,
+    });
+  }
+
+  // Function to update location based on latitude and longitude
+  function updateLocation(lat, lng) {
+    const newLocation = { lat: lat, lng: lng };
+    map.setCenter(newLocation);
+    marker.setPosition(newLocation);
+  }
+</script>
+-->
