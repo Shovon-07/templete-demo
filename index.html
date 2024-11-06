@@ -4,62 +4,23 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="shortcut icon" href="./g-map.png" type="image/x-icon" />
+    <link rel="stylesheet" href="./style.css" />
     <title>Get gps Location</title>
-
-    <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-      body {
-        /* background: #202020; */
-        background: rgb(5, 1, 64);
-        background: linear-gradient(
-          90deg,
-          rgba(5, 1, 64, 1) 0%,
-          rgba(3, 102, 130, 1) 48%,
-          rgba(5, 1, 64, 1) 100%
-        );
-      }
-      #map {
-        height: 100vh;
-        width: 100%;
-      }
-      .location-box {
-        width: 100%;
-        height: 100vh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-        gap: 20px;
-      }
-      .location-box .location-link {
-        color: #fff;
-        font-size: 2rem;
-        text-decoration: none;
-        box-shadow: 1px 1px 10px #000;
-        padding: 10px 30px;
-        border-radius: 15px;
-      }
-    </style>
   </head>
   <body>
     <div class="location-box">
       <div class="display">
         <h1>Co-ordinates</h1>
-        <h1 id="show-co-ordinates">loading...</h1>
+        <h2 id="show-co-ordinates">loading...</h2>
       </div>
       <a
         class="location-link"
         href="https://www.google.com/maps/place"
         target="_blank"
-        >See the location</a
+        >Go to map</a
       >
     </div>
 
-    <!-- Firebase -->
     <script type="module">
       import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
       import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-analytics.js";
@@ -90,16 +51,14 @@
       const db = getDatabase();
 
       let coOrdinates = {
-        // latitude: 24.38048038576122,
-        // longitude: 88.56039293772828,
         latitude: null,
         longitude: null,
       };
 
       // const storeData = () => {
       //   set(ref(db, "coordinates"), {
-      //     Latitude: 24.37273103208768,
-      //     Longitude: 88.59154479471177,
+      //     Latitude: 24.38048038576122,
+      //     Longitude: 88.56039293772828,
       //   })
       //     .then(() => {
       //       alert("Data stored");
@@ -112,11 +71,11 @@
 
       const getData = () => {
         const dbRef = ref(db);
-        get(child(dbRef, "coordinates")).then((snapshot) => {
-          if (snapshot.exists()) {
+        get(child(dbRef, "coordinates")).then((response) => {
+          if (response.exists()) {
             coOrdinates = {
-              latitude: snapshot.val().Latitude,
-              longitude: snapshot.val().Longitude,
+              latitude: response.val().Latitude,
+              longitude: response.val().Longitude,
             };
             // console.log(
             //   `Latitude : ${coOrdinates.latitude} \n Longitude : ${coOrdinates.longitude}`
