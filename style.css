@@ -74,18 +74,42 @@ body {
   .location-box {
     width: 300px;
   }
-  .location-box .display #show-co-ordinates {
+  .location-box .display .show-co-ordinates {
     font-size: 1rem;
+    line-height: 1.5rem;
   }
 }
 @media screen and (max-width: 350px) {
   .location-box {
     width: 200px;
   }
+  .location-box .display {
+    min-height: 100px;
+  }
   .location-box .display h1 {
     font-size: 1.2rem;
   }
-  .location-box .display #show-co-ordinates {
+  .location-box .display .show-co-ordinates {
     font-size: 0.8rem;
+    line-height: 1.3rem;
+  }
+  .location-box .location-link {
+    font-size: 1.2rem;
+  }
+}
+@media screen and (max-width: 225px) {
+  .location-box {
+    width: 150px;
+  }
+  .location-box .display h1 {
+    font-size: 1rem;
+  }
+  .location-box .display .show-co-ordinates {
+    font-size: 0.6rem;
+    line-height: 1.1rem;
+  }
+  .location-box .location-link {
+    font-size: 1.1rem;
+    padding: 10px 20px;
   }
 }
