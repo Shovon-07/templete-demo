@@ -32,6 +32,8 @@
         display: flex;
         align-items: center;
         justify-content: center;
+        flex-direction: column;
+        gap: 20px;
       }
       .location-box .location-link {
         color: #fff;
@@ -45,6 +47,10 @@
   </head>
   <body>
     <div class="location-box">
+      <div class="display">
+        <h1>Co-ordinates</h1>
+        <h1 id="show-co-ordinates">loading...</h1>
+      </div>
       <a
         class="location-link"
         href="https://www.google.com/maps/place"
@@ -55,14 +61,18 @@
 
     <!-- Firebase -->
     <script type="module">
-      // Import the functions you need from the SDKs you need
       import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
       import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-analytics.js";
-      // TODO: Add SDKs for Firebase products that you want to use
-      // https://firebase.google.com/docs/web/setup#available-libraries
+      import {
+        getDatabase,
+        set,
+        get,
+        update,
+        remove,
+        ref,
+        child,
+      } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-database.js";
 
-      // Your web app's Firebase configuration
-      // For Firebase JS SDK v7.20.0 and later, measurementId is optional
       const firebaseConfig = {
         apiKey: "AIzaSyDBxQjXvzun7ordm6waxin2Xru0MDZISlQ",
         authDomain: "location-1cd7a.firebaseapp.com",
@@ -77,49 +87,53 @@
       // Initialize Firebase
       const app = initializeApp(firebaseConfig);
       const analytics = getAnalytics(app);
-
-      import {
-        getDatabase,
-        set,
-        get,
-        update,
-        remove,
-        ref,
-        child,
-      } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-database.js";
-
       const db = getDatabase();
 
-      function storeData() {
-        set(ref(db, "coordinates"), {
-          Latitude: 80.111111,
-          Longitude: 70.2222222222,
-        })
-          .then(() => {
-            alert("Data stored");
-          })
-          .catch((error) => {
-            console.log(error);
-          });
-      }
-      // function getData() {}
+      let coOrdinates = {
+        // latitude: 24.38048038576122,
+        // longitude: 88.56039293772828,
+        latitude: null,
+        longitude: null,
+      };
 
-      window.addEventListener("load", storeData());
+      // const storeData = () => {
+      //   set(ref(db, "coordinates"), {
+      //     Latitude: 24.37273103208768,
+      //     Longitude: 88.59154479471177,
+      //   })
+      //     .then(() => {
+      //       alert("Data stored");
+      //     })
+      //     .catch((error) => {
+      //       console.log(error);
+      //     });
+      // };
+      // window.addEventListener("load", storeData());
+
+      const getData = () => {
+        const dbRef = ref(db);
+        get(child(dbRef, "coordinates")).then((snapshot) => {
+          if (snapshot.exists()) {
+            coOrdinates = {
+              latitude: snapshot.val().Latitude,
+              longitude: snapshot.val().Longitude,
+            };
+            // console.log(
+            //   `Latitude : ${coOrdinates.latitude} \n Longitude : ${coOrdinates.longitude}`
+            // );
+
+            document.querySelector(
+              "#show-co-ordinates"
+            ).innerHTML = `Latitude : ${coOrdinates.latitude} </br> Longitude : ${coOrdinates.longitude}`;
+
+            document.querySelector(
+              ".location-link"
+            ).href = `https://www.google.com/maps/place/${coOrdinates.latitude}+${coOrdinates.longitude}`;
+          }
+        });
+      };
+      window.addEventListener("load", getData());
     </script>
-
-    <script>
-      window.addEventListener("load", () => {
-        let coOrdinates = {
-          latitude: 24.38048038576122,
-          longitude: 88.56039293772828,
-        };
-        let locationLink = document.querySelector(".location-link");
-
-        // Dynamically change co-ordinate link
-        locationLink.href = `https://www.google.com/maps/place/${coOrdinates.latitude}+${coOrdinates.longitude}`;
-      });
-    </script>
-    <script src="./firebase-script.js"></script>
   </body>
 </html>
 
