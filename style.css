@@ -47,15 +47,19 @@ body {
   padding: 15px 20px;
   background: #fff;
   border-radius: 10px;
-  text-align: center;
+  /* text-align: center; */
   color: #000;
 }
 .location-box .display h1 {
   margin-bottom: 20px;
+  text-align: center;
 }
-.location-box .display #show-co-ordinates {
+.location-box .display .show-co-ordinates {
   font-size: 1.3rem;
   line-height: 2rem;
+}
+.location-box .display .show-co-ordinates span {
+  padding-left: 20px;
 }
 .location-box .location-link {
   color: #fff;

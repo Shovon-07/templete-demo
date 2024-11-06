@@ -12,7 +12,15 @@
       <div class="location-box">
         <div class="display">
           <h1>Co-ordinates</h1>
-          <h2 id="show-co-ordinates">loading...</h2>
+          <!-- <h2 id="show-co-ordinates">loading...</h2> -->
+          <h2 class="show-co-ordinates" id="show-latitude">
+            Latitude => <br />
+            <span>loading...</span>
+          </h2>
+          <h2 class="show-co-ordinates" id="show-longitude">
+            Longitude => <br />
+            <span>loading...</span>
+          </h2>
         </div>
         <div class="go-map">
           <a
@@ -85,9 +93,15 @@
             //   `Latitude : ${coOrdinates.latitude} \n Longitude : ${coOrdinates.longitude}`
             // );
 
+            // document.querySelector(
+            //   "#show-co-ordinates"
+            // ).innerHTML = `Latitude : ${coOrdinates.latitude} </br> Longitude : ${coOrdinates.longitude}`;
             document.querySelector(
-              "#show-co-ordinates"
-            ).innerHTML = `Latitude : ${coOrdinates.latitude} </br> Longitude : ${coOrdinates.longitude}`;
+              "#show-latitude span"
+            ).innerHTML = `${coOrdinates.latitude}`;
+            document.querySelector(
+              "#show-longitude span"
+            ).innerHTML = `${coOrdinates.longitude}`;
 
             document.querySelector(
               ".location-link"
