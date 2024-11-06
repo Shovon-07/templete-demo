@@ -53,11 +53,65 @@
       >
     </div>
 
+    <!-- Firebase -->
+    <script type="module">
+      // Import the functions you need from the SDKs you need
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
+      import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-analytics.js";
+      // TODO: Add SDKs for Firebase products that you want to use
+      // https://firebase.google.com/docs/web/setup#available-libraries
+
+      // Your web app's Firebase configuration
+      // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+      const firebaseConfig = {
+        apiKey: "AIzaSyDBxQjXvzun7ordm6waxin2Xru0MDZISlQ",
+        authDomain: "location-1cd7a.firebaseapp.com",
+        databaseURL: "https://location-1cd7a-default-rtdb.firebaseio.com",
+        projectId: "location-1cd7a",
+        storageBucket: "location-1cd7a.firebasestorage.app",
+        messagingSenderId: "116546773936",
+        appId: "1:116546773936:web:1fbee529e0146587da6c75",
+        measurementId: "G-BV38YZXEQH",
+      };
+
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+      const analytics = getAnalytics(app);
+
+      import {
+        getDatabase,
+        set,
+        get,
+        update,
+        remove,
+        ref,
+        child,
+      } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-database.js";
+
+      const db = getDatabase();
+
+      function storeData() {
+        set(ref(db, "coordinates"), {
+          Latitude: 80.111111,
+          Longitude: 70.2222222222,
+        })
+          .then(() => {
+            alert("Data stored");
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+      }
+      // function getData() {}
+
+      window.addEventListener("load", storeData());
+    </script>
+
     <script>
       window.addEventListener("load", () => {
         let coOrdinates = {
-          latitude: 24.380520931145096,
-          longitude: 88.56039608187454,
+          latitude: 24.38048038576122,
+          longitude: 88.56039293772828,
         };
         let locationLink = document.querySelector(".location-link");
 
@@ -65,6 +119,7 @@
         locationLink.href = `https://www.google.com/maps/place/${coOrdinates.latitude}+${coOrdinates.longitude}`;
       });
     </script>
+    <script src="./firebase-script.js"></script>
   </body>
 </html>
 
@@ -76,8 +131,10 @@
 *** -->
 
 <!-- ***
-    >>> Rajshahi : 24.3746° N, 88.6004° E
-    >>> Our musque(Shovon) : 24.38048038576122, 88.56039293772828
+    >>> Charkhuta musque = latitude: 24.38048038576122,
+                           longitude: 88.56039293772828
+    >>> Rajshahi Ttc = latitude: 24.37489399141169,
+                       longitude: 88.60038795238286,
 *** -->
 
 <!-- ***
