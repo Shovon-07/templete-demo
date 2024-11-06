@@ -23,17 +23,26 @@ body {
   height: 100vh;
   width: 100%;
 }
-.location-box {
+
+.main {
   width: 100%;
   height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  gap: 30px;
+}
+.location-box {
+  width: 500px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 40px;
 }
 .location-box .display {
-  width: 500px;
+  width: 100%;
   min-height: 160px;
   padding: 15px 20px;
   background: #fff;
@@ -55,4 +64,24 @@ body {
   box-shadow: 1px 1px 10px #000;
   padding: 10px 30px;
   border-radius: 10px;
+}
+
+@media screen and (max-width: 550px) {
+  .location-box {
+    width: 300px;
+  }
+  .location-box .display #show-co-ordinates {
+    font-size: 1rem;
+  }
+}
+@media screen and (max-width: 350px) {
+  .location-box {
+    width: 200px;
+  }
+  .location-box .display h1 {
+    font-size: 1.2rem;
+  }
+  .location-box .display #show-co-ordinates {
+    font-size: 0.8rem;
+  }
 }
