@@ -91,7 +91,9 @@
           }
         });
       };
-      window.addEventListener("load", getData());
+      setInterval(() => {
+        getData();
+      }, 100);
     </script>
   </body>
 </html>
